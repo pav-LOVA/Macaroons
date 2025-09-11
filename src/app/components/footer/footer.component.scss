@@ -1,0 +1,66 @@
+.footer {
+  background: #c0707c;
+  padding: 73px 0 62px 0;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rights-copyright, .copyright {
+  font-size: 12px;
+  color: rgb(227, 172, 180);
+  margin-top: 19px;
+}
+
+.copyright {
+  display: none;
+}
+
+.socials {
+  text-align: center;
+}
+
+.socials-descriptions {
+  margin-top: 15px;
+}
+
+.socials-descriptions a {
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "GilroyBold", sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+
+@media screen and (max-width: 767px) {
+  .footer .container {
+    flex-direction: column;
+    height: 230px;
+  }
+
+  .rights {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer .logo {
+    order: 1;
+  }
+
+  .rights-copyright {
+    display: none;
+  }
+
+  .socials {
+    order: 3
+  }
+
+  .copyright {
+    display: block;
+    order: 4
+  }
+}
