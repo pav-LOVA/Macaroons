@@ -34,28 +34,11 @@
   max-width: 347.2px;
 }
 
-.btn {
-  font-size: 18px;
-  font-family: "GilroyBold", sans-serif;
-  color: rgb(255, 255, 255);
-  background: linear-gradient(0, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
-  line-height: 1;
-  border-radius: 30px;
-  border: none;
-  box-sizing: border-box;
-  text-align: center;
-  cursor: pointer;
-}
-
 .main-btn {
   padding: 22px 5px 21px 5px;
   width: 240px;
   height: 60px;
   margin-bottom: 38px;
-}
-
-.btn:hover {
-  box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
 }
 
 .main-image {
@@ -133,71 +116,6 @@
   column-gap: 83px;
 }
 
-.advantages-item {
-  display: grid;
-  grid-template-rows: max(83px) max(42.4px) max(100px);
-}
-
-.advantage-number {
-  background: #821328;
-  border-radius: 50%;
-  border: none;
-  padding: 28px 10px 0 10px;
-  width: 70px;
-  height: 70px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.advantages-item:hover .advantage-number {
-  animation: color1 .5s ease forwards;
-}
-
-@keyframes color1 {
-  0% {
-    background: #821328
-  }
-  100% {
-    background: #eba8b1
-  }
-}
-
-.advantage-number span {
-  font-size: 60px;
-  font-family: "GilroyExtraBold", sans-serif;
-  color: #ffffff;
-  line-height: 0.75;
-  position: relative;
-  top: 0;
-}
-
-.advantages-item:hover span {
-  animation: color2 .5s ease forwards;
-}
-
-@keyframes color2 {
-  0% {
-    color: #ffffff
-  }
-  100% {
-    color: #821328
-  }
-}
-
-.advantage-title {
-  font-size: 20px;
-  font-family: "GilroyExtraBold", sans-serif;
-  color: rgb(51, 25, 7);
-}
-
-.advantage-text {
-  font-size: 15px;
-  font-family: "GilroyMedium", sans-serif;
-  color: rgb(51, 25, 7);
-  line-height: 1.333;
-  max-width: 220px;
-}
-
 
 .catalog {
   background: #eba8b1;
@@ -218,58 +136,6 @@
   column-gap: 30px;
   justify-content: center;
   justify-items: center;
-}
-
-.catalog-item {
-  display: grid;
-  grid-template-rows: max(109px) max(45.44px) max(32.44px) max(16.44px);
-  grid-template-columns: max(57px) max(130px);
-  column-gap: 36px;
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 20px;
-  padding: 0 21px 27px 21px;
-  box-sizing: border-box;
-  justify-content: center
-}
-
-.item-image {
-  grid-row: 1/2;
-  grid-column: 1/3;
-  text-align: center;
-  position: relative;
-  top: -57px;
-  transition: transform .5s;
-}
-
-.catalog-item:hover .item-image {
-  transform: scale(1.1);
-}
-
-.item-name {
-  grid-row: 2/3;
-  grid-column: 1/3;
-  text-align: center;
-  font-size: 18px;
-  font-family: "Tavolga", sans-serif;
-  color: rgb(255, 255, 255);
-}
-
-.item-quantity {
-  font-size: 15px;
-  color: rgb(255, 255, 255);
-}
-
-.item-price {
-  font-size: 15px;
-  color: rgb(255, 255, 255);
-}
-
-.item-btn {
-  grid-row: 3/5;
-  grid-column: 2/3;
-  width: 130px;
-  height: 50px;
-  padding: 19px 5px 20px 5px;
 }
 
 
@@ -372,18 +238,30 @@
   animation: move 2.5s linear infinite;
 }
 
+.cart {
+  position: relative;
+}
+
 .present {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  border-radius: 50%;
-  max-width: 90px;
-  max-height: 90px;
+  width: 90px;
+  height: 90px;
   background: linear-gradient(0, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
-  text-align: center;
-  padding: 20px 18px 18px 19px;
-  box-sizing: border-box;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1000000;
+
+}
+
+.present img {
+  width: 50%;
+  height: auto;
+  object-fit: contain;
 }
 
 .present:hover {
@@ -396,10 +274,13 @@
   right: 0;
   z-index: 10000;
   display: flex;
+  border-radius: 50%;
 }
 
 .message {
-  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
   font-family: "GilroyMedium", sans-serif;
   padding: 15px 12px 14px 11px;
   box-sizing: border-box;
@@ -409,7 +290,7 @@
   border-radius: 10px;
   background-color: rgb(254, 239, 238);
   position: fixed;
-  width: 172px;
+  width: 120px;
   height: 64px;
   right: 140px;
   bottom: -64px;
@@ -434,6 +315,23 @@
   animation: message_open 1s linear forwards;
 }
 
+.count {
+  position: absolute;
+  bottom: 90px;
+  right: 25px;
+  border-radius: 50%;
+  border: 2px solid rgb(119, 10, 29);
+  color: rgb(119, 10, 29);
+  background: white;
+  width: 25px;
+  height: 25px;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000000;
+}
 
 @keyframes message_open {
   0% {
@@ -520,12 +418,6 @@
     grid-template-rows: 1fr 1fr;
     row-gap: 80px;
     column-gap: 54px;
-  }
-
-  .advantages-item {
-    justify-items: center;
-    text-align: center;
-    justify-content: center
   }
 
 
@@ -623,23 +515,11 @@
     column-gap: 15px;
   }
 
-  .advantage-title {
-    font-size: 18px;
-  }
-
-  .advantage-text {
-    font-size: 13px;
-  }
-
 
   .catalog-items {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     row-gap: 136px;
-  }
-
-  .catalog-title h2 {
-    font-size: 30px;
   }
 
 
@@ -687,19 +567,9 @@
     row-gap: 20px;
   }
 
-
   .catalog {
     padding: 60px 0;
   }
-
-  .catalog-title h2 {
-    margin-bottom: 80px;
-  }
-
-  .catalog-items {
-    row-gap: 80px;
-  }
-
 
   .form {
     max-width: 290px;

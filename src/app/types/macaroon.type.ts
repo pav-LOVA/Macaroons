@@ -1,6 +1,6 @@
 export type MacaroonType = {
   image: string,
-  name: string,
+  title: string,
   quantity: number,
   price: number,
 }

@@ -15,7 +15,7 @@
       </div>
 
       <div class="main-info-actions">
-        <button class="btn main-btn" (click)="scrollTo(catalog)">Выбрать макарун</button>
+        <button class="btn main-btn" (click)="scrollTo(catalog)" buttonEffect>Выбрать макарун</button>
       </div>
     </div>
 
@@ -51,11 +51,7 @@
     </div>
 
     <div class="advantages-items">
-      <div class="advantages-item" *ngFor="let advantage of advantages; let i = index">
-        <div class="advantage-number"><span>{{ i+1 }}</span></div>
-        <div class="advantage-title">{{ advantage.title }}</div>
-        <div class="advantage-text">{{ advantage.text }}</div>
-      </div>
+      <app-advantage *ngFor="let advantage of advantages; let i = index" [advantage]="advantage" [index]="i"></app-advantage>
     </div>
   </div>
 </section>
@@ -69,16 +65,7 @@
     </div>
 
     <div class="catalog-items">
-      <div class="catalog-item" *ngFor="let macaroon of macaroons">
-        <div class="item-image">
-          <img src="assets/images/{{macaroon.image}}" alt="macaroon">
-        </div>
-        <div class="item-name">{{macaroon.name}}</div>
-        <div class="item-quantity">{{ macaroon.quantity }} шт.</div>
-        <div class="item-price">{{ macaroon.price }} руб.</div>
-
-        <div class="btn item-btn" (click)="addToCart(macaroon, order)">Заказать</div>
-      </div>
+      <app-macaroon *ngFor="let macaroon of macaroons" [macaroon]="macaroon" (addToCartEvent)="addToCart($event, order)"></app-macaroon>
     </div>
   </div>
 </section>
@@ -115,7 +102,7 @@
       <input type="text" class="input" placeholder="Ваше имя" [(ngModel)]="formValues.name">
       <input type="text" class="input" placeholder="+375 (__) ___ - __ - __" [(ngModel)]="formValues.phone">
 
-      <div class="btn form-btn" (click)="createOrder()">Оформить заказ</div>
+      <div class="btn form-btn" (click)="createOrder()" buttonEffect>Оформить заказ</div>
     </div>
 
     <div class="strawberry2">
@@ -127,9 +114,16 @@
 <app-footer [linkInstagram]="linkInstagram" [phoneNumber]="phoneNumber"></app-footer>
 
 <div class="gift" [style.display]="showPresent ? 'flex' : 'none'">
-  <img src="assets/images/present.png" alt="present" class="present">
-
-  <div class="message">
-    Оформите заказ и получите подарок!
+  <div class="cart">
+    <div class="present">
+      <img src="assets/images/cart.png" alt="present">
+    </div>
+    <div class="count" [style.display]="this.cartService.sum ? 'flex' : 'none'">
+      {{cartService.count}}
+    </div>
+  </div>
+  <div class="message" [style.display]="this.cartService.sum ? 'flex' : 'none'">
+    {{this.cartService.sum}} руб.
   </div>
 </div>
+
