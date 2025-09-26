@@ -4,7 +4,7 @@
   </div>
   <div class="item-name">{{macaroon.title}}</div>
   <div class="item-quantity">{{ macaroon.quantity }} шт.</div>
-  <div class="item-price">{{ macaroon.price | currency}} руб.</div>
+  <div class="item-price">{{ macaroon.price | currency : 'RUB':'руб.' : '1.2-2'}}</div>
 
   <div class="btn item-btn" (click)="addMacaroonToCart(macaroon.title, macaroon.price)" buttonEffect>Заказать</div>
 </div>
